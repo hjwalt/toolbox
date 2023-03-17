@@ -1,0 +1,7 @@
+#!/usr/bin/env -S bash -i
+
+sdk install scala 2.12.15
+sdk install sbt 1.5.4
+
+sdk use scala 2.12.15
+sdk use sbt 1.5.4

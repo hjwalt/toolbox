@@ -1,0 +1,4 @@
+#!/usr/bin/env -S bash -i
+
+kubectl drain $1 --ignore-daemonsets --delete-emptydir-data
+kubectl cordon $1

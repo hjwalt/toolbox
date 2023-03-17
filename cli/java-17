@@ -1,0 +1,4 @@
+#!/usr/bin/env -S bash -i
+
+sdk install java 17.0.6-tem
+sdk use java 17.0.6-tem

@@ -1,0 +1,49 @@
+FROM registry.fedoraproject.org/fedora-toolbox:38
+
+COPY extra-packages /
+COPY development-packages /
+
+RUN dnf group install -y "development tools" && \ 
+    dnf install -y $(<extra-packages) && \
+    dnf install -y $(<development-packages) && \
+    dnf clean all && \
+    rm /extra-packages && \
+    rm /development-packages && \
+    npm install -g yarn && \
+    npm install -g nx
+
+ARG USERNAME=hjwalt
+ARG USERUID=1000
+
+# create user
+
+RUN groupadd --gid 1000 $USERNAME \
+    && useradd --uid $USERUID --gid 1000 -m $USERNAME \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME 
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+ENV SDKMAN_DIR /home/$USERNAME/.sdkman
+
+RUN curl -s "https://get.sdkman.io" | bash && \
+    echo "sdkman_auto_answer=true" > $SDKMAN_DIR/etc/config && \
+    echo "sdkman_auto_selfupdate=false" >> $SDKMAN_DIR/etc/config && \
+    echo "sdkman_insecure_ssl=false" >> $SDKMAN_DIR/etc/config 
+
+RUN mkdir -p /home/$USERNAME/bin
+
+RUN curl -sS https://starship.rs/install.sh -o install-starship.sh \
+    && sh install-starship.sh --yes \
+    && rm install-starship.sh
+
+RUN curl -L -o /home/$USERNAME/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+    && chmod +x /home/$USERNAME/bin/kubectl
+
+COPY --chown=1000:$USERUID additions.bashrc /home/$USERNAME/additions.bashrc
+COPY --chown=1000:$USERUID additions-add /home/$USERNAME/additions-add
+
+RUN ./additions-add \
+    && rm /home/$USERNAME/additions.bashrc \
+    && rm /home/$USERNAME/additions-add 

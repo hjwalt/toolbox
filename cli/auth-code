@@ -1,0 +1,3 @@
+#!/usr/bin/env -S bash -i
+
+ykman oath accounts code $1 | sed 's/.*\(......\)/\1/'

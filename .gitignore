@@ -1,0 +1,15 @@
+.aws
+.cache
+.cli
+.config
+.ejson
+.go
+.gradle
+.ivy2
+.m2
+.path
+.scala
+.sdkman
+.sdkman-candidates
+.ssh
+.vscode-server

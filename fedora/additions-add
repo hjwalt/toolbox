@@ -1,0 +1,11 @@
+#!/usr/bin/env -S bash -i
+
+lead='^unset rc$'
+tail='^#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!$'
+
+cp $HOME/.bashrc $HOME/.bashrc.old
+
+sed -e "/$lead/,/$tail/{ /$lead/{p; r $HOME/additions.bashrc
+    }; /$tail/p; d }" $HOME/.bashrc.old > $HOME/.bashrc 
+
+cat $HOME/.bashrc 

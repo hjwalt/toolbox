@@ -1,0 +1,8 @@
+#!/usr/bin/env -S bash -i
+
+set -e
+
+git fetch --prune
+git tag -l | xargs -n 1 git push --delete origin
+git tag | xargs git tag -d
+git fetch --prune

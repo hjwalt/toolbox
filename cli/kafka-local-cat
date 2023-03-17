@@ -1,0 +1,5 @@
+#!/usr/bin/env -S bash -i
+
+set -e
+
+kcat -b localhost:9092 -t $1 -C -f '\nKey (%K string): %k Value (%S string): %s Timestamp: %T Partition: %p Offset: %o Headers: %h\n' 

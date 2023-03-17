@@ -1,0 +1,64 @@
+#!/usr/bin/env -S bash -i
+set -e
+
+cd $HOME/Toolbox/fedora
+
+podman build --format docker -t hjwalt/toolbox:latest .
+podman image prune -f
+
+mkdir -p $HOME/Toolbox/.aws
+mkdir -p $HOME/Toolbox/.cache
+mkdir -p $HOME/Toolbox/.cli
+mkdir -p $HOME/Toolbox/.config
+mkdir -p $HOME/Toolbox/.ejson
+mkdir -p $HOME/Toolbox/.go
+mkdir -p $HOME/Toolbox/.gradle
+mkdir -p $HOME/Toolbox/.ivy2
+mkdir -p $HOME/Toolbox/.m2
+mkdir -p $HOME/Toolbox/.scala
+mkdir -p $HOME/Toolbox/.sdkman
+mkdir -p $HOME/Toolbox/.sdkman/candidates
+mkdir -p $HOME/Toolbox/.sdkman-candidates
+mkdir -p $HOME/Toolbox/.ssh
+mkdir -p $HOME/Toolbox/.vscode-server
+
+podman container rm -f toolbox-hjwalt
+
+podman create   --name          toolbox-hjwalt \
+                --privileged \
+                --restart       unless-stopped \
+                --env           XDG_RUNTIME_DIR=/run/user/1000 \
+                --hostname      toolbox \
+                --mount         type=devpts,destination=/dev/pts \
+                --network       host \
+                --userns        keep-id \
+                --ulimit        host \
+                --ipc           host \
+                --pid           host \
+                --pids-limit    -1 \
+                --security-opt  label=disable \
+                --volume        /run/user/1000:/run/user/1000 \
+                --volume        $HOME/.kube:/home/hjwalt/.kube \
+                --volume        $HOME/Path:/home/hjwalt/path:rslave \
+                --volume        $HOME/Projects:/home/hjwalt/projects \
+                --volume        $HOME/Toolbox/.aws:/home/hjwalt/.aws \
+                --volume        $HOME/Toolbox/.cache:/home/hjwalt/.cache \
+                --volume        $HOME/Toolbox/.cli:/home/hjwalt/.cli \
+                --volume        $HOME/Toolbox/.config:/home/hjwalt/.config \
+                --volume        $HOME/Toolbox/.ejson:/home/hjwalt/.ejson \
+                --volume        $HOME/Toolbox/.go:/home/hjwalt/.go \
+                --volume        $HOME/Toolbox/.gradle:/home/hjwalt/.gradle \
+                --volume        $HOME/Toolbox/.ivy2:/home/hjwalt/.ivy2 \
+                --volume        $HOME/Toolbox/.m2:/home/hjwalt/.m2 \
+                --volume        $HOME/Toolbox/.scala:/home/hjwalt/.scala \
+                --volume        $HOME/Toolbox/.sdkman/candidates:/home/hjwalt/.sdkman/candidates \
+                --volume        $HOME/Toolbox/.ssh:/home/hjwalt/.ssh \
+                --volume        $HOME/Toolbox/.vscode-server:/home/hjwalt/.vscode-server \
+                --volume        $HOME/Toolbox/cli:/home/hjwalt/cli \
+                --volume        $HOME/Toolbox/starship:/home/hjwalt/starship \
+                hjwalt/toolbox:latest \
+                sleep \
+                infinity
+
+podman start toolbox-hjwalt
+podman ps

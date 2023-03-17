@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+CURRENT_BRANCH=$(git branch --show-current)
+
+if [[ $CURRENT_BRANCH != "master" ]]; then
+  git checkout master
+  git branch -d $CURRENT_BRANCH
+fi
+
+git fetch --prune
+git pull
