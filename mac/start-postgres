@@ -1,0 +1,6 @@
+#!/usr/bin/env -S zsh -i
+
+set -e
+
+cd $HOME/Toolbox/compose
+docker compose up postgres -d

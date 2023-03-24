@@ -1,0 +1,113 @@
+{
+  "dev.containers.dockerComposePath": "podman-remote",
+  "dev.containers.dockerPath": "podman-remote",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.formatOnSave": false,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.pullRequests.enabled": false,
+  "gitlens.hovers.avatars": false,
+  "gitlens.hovers.pullRequests.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "go.toolsManagement.autoUpdate": true,
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "pasteImage.path": "${currentFileDir}/images",
+  "pasteImage.showFilePathConfirmInputBox": false,
+  "python.formatting.provider": "black",
+  "redhat.telemetry.enabled": true,
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', 'monospace', monospace",
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.editor.enablePreview": false,
+  "yaml.customTags": [
+    "!reference sequence"
+  ],
+  "files.watcherExclude": {
+    "**/.ammonite": true,
+    "**/.bloop": true,
+    "**/.metals": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  // "terminal.integrated.defaultProfile.linux": "bash",
+  // "terminal.integrated.profiles.linux": {
+  //   "bash": {
+  //     "path": "/usr/bin/flatpak-spawn",
+  //     "args": ["--host", "--env=TERM=xterm-256color", "bash"],
+  //     "icon": "terminal-bash"
+  //   },
+  //   "zsh": {
+  //     "path": "zsh"
+  //   },
+  //   "fish": {
+  //     "path": "fish"
+  //   },
+  //   "tmux": {
+  //     "path": "tmux",
+  //     "icon": "terminal-tmux"
+  //   },
+  //   "pwsh": {
+  //     "path": "pwsh",
+  //     "icon": "terminal-powershell"
+  //   }
+  // },
+  // "vs-kubernetes": {
+  //   "vs-kubernetes.ignore-recommendations": true
+  // },
+  // "codestream.serverUrl": "https://api.codestream.com",
+  // "dart.flutterSdkPath": "$HOME/Path/flutter",
+  "[dart]": {
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[gradle]": {
+    "editor.defaultFormatter": "naco-siren.gradle-language"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1
+}
