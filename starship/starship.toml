@@ -15,8 +15,14 @@ deleted = "x"
 modified = "m"
 staged = "s"
 
+[hostname]
+ssh_symbol = "ssh "
+
 [aws]
 symbol = "aws "
+
+[azure]
+symbol = "az "
 
 [bun]
 symbol = "bun "
@@ -63,14 +69,23 @@ symbol = "exs "
 [elm]
 symbol = "elm "
 
+[fennel]
+symbol = "fnl "
+
+[fossil_branch]
+symbol = "fossil "
+
 [gcloud]
-symbol = "gcloud "
+symbol = "gcp "
 
 [git_branch]
 symbol = "git "
 
 [golang]
 symbol = "go "
+
+[gradle]
+symbol = "gradle "
 
 [guix_shell]
 symbol = "guix "
@@ -112,10 +127,14 @@ symbol = "ml "
 symbol = "opa "
 
 [os.symbols]
+AIX = "aix "
+Alpaquita = "alq "
+AlmaLinux = "alma "
 Alpine = "alp "
 Amazon = "amz "
 Android = "andr "
 Arch = "rch "
+Artix = "atx "
 CentOS = "cent "
 Debian = "deb "
 DragonFly = "dfbsd "
@@ -127,7 +146,9 @@ Garuda = "garu "
 Gentoo = "gent "
 HardenedBSD = "hbsd "
 Illumos = "lum "
+Kali = "kali "
 Linux = "lnx "
+Mabox = "mbox "
 Macos = "mac "
 Manjaro = "mjo "
 Mariner = "mrn "
@@ -136,17 +157,22 @@ Mint = "mint "
 NetBSD = "nbsd "
 NixOS = "nix "
 OpenBSD = "obsd "
+OpenCloudOS = "ocos "
+openEuler = "oeul "
 openSUSE = "osuse "
 OracleLinux = "orac "
 Pop = "pop "
 Raspbian = "rasp "
 Redhat = "rhl "
 RedHatEnterprise = "rhel "
+Rocky = "rky "
 Redox = "redox "
 Solus = "sol "
 SUSE = "suse "
 Ubuntu = "ubnt "
+Ultramarine = "ultm "
 Unknown = "unk "
+Void = "void "
 Windows = "win "
 
 [package]
@@ -158,6 +184,9 @@ symbol = "pl "
 [php]
 symbol = "php "
 
+[pijul_channel]
+symbol = "pijul "
+
 [pulumi]
 symbol = "pulumi "
 
@@ -166,6 +195,9 @@ symbol = "purs "
 
 [python]
 symbol = "py "
+
+[quarto]
+symbol = "quarto "
 
 [raku]
 symbol = "raku "
@@ -182,11 +214,20 @@ symbol = "scala "
 [spack]
 symbol = "spack "
 
+[solidity]
+symbol = "solidity "
+
+[status]
+symbol = "[x](bold red) "
+
 [sudo]
 symbol = "sudo "
 
 [swift]
 symbol = "swift "
+
+[typst]
+symbol = "typst "
 
 [terraform]
 symbol = "terraform "
